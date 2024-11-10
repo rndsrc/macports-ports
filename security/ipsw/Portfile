@@ -3,7 +3,7 @@
 PortSystem              1.0
 PortGroup               golang 1.0
 
-go.setup                github.com/blacktop/ipsw 3.1.544 v
+go.setup                github.com/blacktop/ipsw 3.1.555 v
 github.tarball_from     archive
 revision                0
 categories              security devel
@@ -18,9 +18,9 @@ long_description        {*}${description}. Everything you need to start \
 
 homepage                https://blacktop.github.io/ipsw
 
-checksums               rmd160  039d377cafb96e5da8a716f45c4c229228a1b46f \
-                        sha256  edd4207bed48bab3527737fd8d2f45acf4c7e37724d289310dc6547ef42051a3 \
-                        size    12552773
+checksums               rmd160  9f035bcb9b082335ee5c2f47d86abcd299220968 \
+                        sha256  0fd4b995cc34bb243291dad01cf9e015489de978f40e3a3c8cc02261afee896e \
+                        size    12610878
 
 depends_build-append    path:bin/pkg-config:pkgconfig
 
@@ -60,9 +60,9 @@ destroot {
     xinstall -m 644 ${worksrcpath}/${name}.bash \
         ${destroot}${prefix}/share/bash-completion/completions/${name}
 
-    xinstall -d ${destroot}${prefix}/share/fish/vendor_completion.d
+    xinstall -d ${destroot}${prefix}/share/fish/vendor_completions.d
     xinstall -m 644 ${worksrcpath}/${name}.fish \
-        ${destroot}${prefix}/share/fish/vendor_completion.d
+        ${destroot}${prefix}/share/fish/vendor_completions.d
 
     xinstall -d ${destroot}${prefix}/share/doc/${name}
     xinstall -m 644 -W ${worksrcpath} LICENSE README.md \

@@ -94,7 +94,7 @@ set compilers.list {cc cxx cpp objc fc f77 f90}
 # Should match those in compilers/gcc_compilers.tcl
 if { ${os.arch} eq "arm" || ${os.platform} ne "darwin" } {
     set gcc_versions [list]
-    if { ${os.major} <= 23 } {
+    if { [vercmp ${xcodeversion} < 16.0] && [vercmp ${xcodecltversion} < 16.0] } {
         lappend gcc_versions 10 11 12 13
     }
     lappend gcc_versions 14 devel
@@ -104,7 +104,7 @@ if { ${os.arch} eq "arm" || ${os.platform} ne "darwin" } {
         lappend gcc_versions 5 6 7 8 9
     }
     if { ${os.major} >= 10 } {
-        if { ${os.major} <= 23 } {
+        if { [vercmp ${xcodeversion} < 16.0] && [vercmp ${xcodecltversion} < 16.0] } {
             lappend gcc_versions 10 11 12 13
         }
         lappend gcc_versions 14 devel
@@ -183,12 +183,9 @@ if { ${os.arch} ne "arm" && ${os.platform} eq "darwin" } {
         }
     }
     if { ${os.major} >= 9 && ${os.major} < 20 } {
-        lappend clang_versions 5.0 6.0 7.0
+        lappend clang_versions 5.0 6.0 7.0 8.0
     }
-    if { ${os.major} >= 9 } {
-        if { ${os.major} < 20 } {
-            lappend clang_versions 8.0
-        }
+    if { ${os.major} >= 9 && ${os.major} < 23 } {
         lappend clang_versions 9.0 10
     }
 }
@@ -196,11 +193,11 @@ if { ${os.major} >= 9 || ${os.platform} ne "darwin" } {
     if { ${os.major} <= 23 || ${os.platform} ne "darwin"} {
         lappend clang_versions 11
         if { ${os.major} >= 11 || ${os.platform} ne "darwin"} {
-            lappend clang_versions 12 13 14 15 16 17
+            lappend clang_versions 12
         }
     }
     if { ${os.major} >= 11 || ${os.platform} ne "darwin"} {
-        lappend clang_versions 18 19
+        lappend clang_versions 13 14 15 16 17 18 19
     }
     if { ${os.major} >= 14 } {
         lappend clang_versions devel

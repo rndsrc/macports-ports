@@ -5,7 +5,7 @@ PortGroup       legacysupport 1.0
 PortGroup       compiler_blacklist_versions 1.0
 
 name            bind9
-version         9.20.1
+version         9.20.3
 revision        0
 categories      net
 maintainers     {geeklair.net:dluke @danielluke} {jmr @jmroot}
@@ -31,9 +31,9 @@ homepage        https://www.isc.org/bind/
 distname        bind-${version}
 master_sites    isc:${name}/${version}
 
-checksums       rmd160    33a5a9cfa6e21d9dd9b59f6f8b1fda1ac13adf8d \
-                sha256    fe6ddff74921410d33b62b5723ac23912e8d50138ef66d7a30dc2c421129aeb0 \
-                size      5789604
+checksums       rmd160    adbaf724a68a0e2e0776ea3727f7517f7d0d7e0e \
+                sha256    f90c2da1621299f56a2e6585a6fe459ec3efd6f2fdf84a8fbf31b40be7698a73 \
+                size      5664328
 
 use_xz          yes
 

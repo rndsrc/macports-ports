@@ -5,7 +5,7 @@ PortGroup           python 1.0
 PortGroup           select 1.0
 
 name                py-panel
-version             1.5.0
+version             1.5.3
 revision            0
 categories-append   graphics devel
 license             BSD
@@ -20,9 +20,9 @@ homepage            https://panel.holoviz.org
 
 python.versions     39 310 311 312
 
-checksums           rmd160  f1dfe5fcb2ea1dec07c3c04901847ce4a6607cf3 \
-                    sha256  31e5cb229bbb6010ea3cc6023952c1423b008f4fa137ede3794fa6ce2e4a0f32 \
-                    size    29341232
+checksums           rmd160  52c4177e19c450f204f7a318f0cf8fe8fae9612a \
+                    sha256  1280ac768fa88b3bc19282be875c9ad5229cb08089540e9d800dcde62ac5effb \
+                    size    29360251
 
 if {${name} ne ${subport}} {
     if {${python.version} eq 39} {
@@ -34,9 +34,12 @@ if {${name} ne ${subport}} {
     }
 
     python.pep517   yes
+    python.pep517_backend \
+                    hatch
 
     depends_build-append \
-                    port:npm10
+                    port:npm10 \
+                    port:py${python.version}-hatch-vcs
 
     depends_run-append \
                     path:bin/node:nodejs22 \

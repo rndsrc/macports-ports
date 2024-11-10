@@ -3,6 +3,7 @@
 PortSystem          1.0
 PortGroup           boost 1.0
 PortGroup           cmake 1.1
+PortGroup           compiler_blacklist_versions 1.0
 PortGroup           github 1.0
 PortGroup           legacysupport 1.1
 
@@ -12,8 +13,8 @@ legacysupport.redirect_bins lms lms-metadata lms-recommendation
 
 boost.version       1.81
 
-github.setup        epoupon lms 3.57.0 v
-revision            0
+github.setup        epoupon lms 3.60.0 v
+revision            1
 
 categories          audio multimedia www
 license             GPL-3
@@ -23,9 +24,9 @@ description         Lightweight Music Server
 long_description    LMS is a self-hosted music streaming software: \
                     access your music collection from anywhere using a web interface.
 homepage            https://lms-demo.poupon.dev
-checksums           rmd160  2bb1cc927be668bf219002c52d0786a1c0f9b7cb \
-                    sha256  7e5d447715915d8d980d3a82a429358951e831ff43d955084109b5898545416c \
-                    size    444691
+checksums           rmd160  b9677c05cf8c9fa558b925eb59ee1b557b8aa2e3 \
+                    sha256  ae071c2841b056291fe05f28845be37cb839b0b813c5e52a663e6c9fced4f765 \
+                    size    458598
 github.tarball_from archive
 
 depends_build-append \
@@ -38,21 +39,12 @@ depends_lib-append  port:ffmpeg \
                     port:taglib \
                     port:wt
 
-# https://github.com/epoupon/lms/issues/514
-patchfiles-append   777c36005bdcdc09e1813a84f3f2c0acc0b47fac.patch
-
-# https://github.com/epoupon/lms/pull/524
-patchfiles-append   0001-CMakeLists-do-not-use-Linux-ldflag-on-macOS.patch
-
 # https://github.com/epoupon/lms/issues/525
-patchfiles-append   0002-Fix-lms.conf-path.patch
+patchfiles-append   0001-Fix-lms.conf-path.patch
 
 post-patch {
-    reinplace "s|@PREFIX@|${prefix}|g" \
-                    ${worksrcpath}/src/lms/main.cpp \
-                    ${worksrcpath}/src/tools/cover/LmsCover.cpp \
-                    ${worksrcpath}/src/tools/db-generator/LmsDbGenerator.cpp \
-                    ${worksrcpath}/src/tools/recommendation/LmsRecommendation.cpp
+    reinplace "s|@PREFIX@|${prefix}|" \
+                    ${worksrcpath}/src/libs/core/include/core/SystemPaths.hpp
 }
 
 configure.args-append \
@@ -60,8 +52,10 @@ configure.args-append \
                     -DENABLE_TESTS=OFF
 
 # https://github.com/epoupon/lms/issues/526
-compiler.blacklist-append \
-                    macports-clang-18
+if {${os.platform} eq "darwin" && ${os.major} < 24} {
+    compiler.blacklist-append \
+                    {macports-clang-1[8-9]}
+}
 
 compiler.cxx_standard   2020
 

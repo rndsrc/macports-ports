@@ -5,7 +5,7 @@ PortGroup           python 1.0
 PortGroup           select 1.0
 
 name                py-hatchling
-version             1.25.0
+version             1.26.1
 revision            0
 supported_archs     noarch
 platforms           {darwin any}
@@ -15,11 +15,11 @@ description         This is the extensible, standards compliant build backend us
 long_description    {*}${description}
 homepage            https://hatch.pypa.io/latest/
 
-checksums           rmd160  2ff951ee9a94f969995033826cbe564a99949fbe \
-                    sha256  7064631a512610b52250a4d3ff1bd81551d6d1431c4eb7b72e734df6c74f4262 \
-                    size    64632
+checksums           rmd160  b2102cab80212101400cba2aa8db68c3db3bedc7 \
+                    sha256  8d956592e6c5d5df1f591be1e97a941c7b9ec6fd039f4c8624c29557bac034e9 \
+                    size    54879
 
-python.versions     37 38 39 310 311 312
+python.versions     37 38 39 310 311 312 313
 
 if {${name} ne ${subport}} {
     python.pep517   yes

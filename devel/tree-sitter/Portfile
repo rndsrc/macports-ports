@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           github 1.0
 
-github.setup        tree-sitter tree-sitter 0.23.0 v
+github.setup        tree-sitter tree-sitter 0.24.3 v
 github.tarball_from archive
 revision            0
 
@@ -29,9 +29,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
 dist_subdir         ${name}/${version}_${revision}
 
 checksums           ${distname}${extract.suffix} \
-                    rmd160  c8351d413afcecec191743177cd64d7049e2f07e \
-                    sha256  6403b361b0014999e96f61b9c84d6950d42f0c7d6e806be79382e0232e48a11b \
-                    size    2977346
+                    rmd160  2fa20f5028f209cdc45812994be6f094737947a3 \
+                    sha256  0a8d0cf8e09caba22ed0d8439f7fa1e3d8453800038e43ccad1f34ef29537da1 \
+                    size    3018668
 
 use_configure       no
 

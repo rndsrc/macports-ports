@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           perl5 1.0
 
 perl5.branches      5.28 5.30 5.32 5.34
-perl5.setup         Module-CoreList 5.20240829 ../../authors/id/B/BI/BINGOS
+perl5.setup         Module-CoreList 5.20241020 ../../authors/id/B/BI/BINGOS
 revision            0
 license             {Artistic-1 GPL}
 maintainers         {devans @dbevans} openmaintainer
@@ -14,9 +14,9 @@ long_description    {*}${description}
 platforms           {darwin any}
 supported_archs     noarch
 
-checksums           rmd160  797e7347d1924ae9d4f5ea87c38c2e513d94a211 \
-                    sha256  62cb28d56c436705475a2bcc3e75ef813085b3fb8de8e9305baf2e084d7827f9 \
-                    size    137871
+checksums           rmd160  f34bb6775163a8c3b49065ff0556d9bae3ea096d \
+                    sha256  68d731d817c9b90d7c8c2ce3c714824b002ff35d321989fcd938273c4de30ed1 \
+                    size    138900
 
 if {${perl5.major} != ""} {
     depends_lib-append \

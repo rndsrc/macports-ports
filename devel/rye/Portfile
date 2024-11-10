@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cargo   1.0
 PortGroup           github  1.0
 
-github.setup        astral-sh rye 0.39.0
+github.setup        astral-sh rye 0.42.0
 github.tarball_from archive
 revision            0
 
@@ -27,9 +27,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
 checksums           ${distname}${extract.suffix} \
-                    rmd160  6e353e7522fcad5e803b882338336ecc85acdf76 \
-                    sha256  359afd0c0badf0524cecbf66761ad499f8deb26f287c5391c8996a8914dfed7a \
-                    size    1475688
+                    rmd160  942d9c6d6bdee6474456d4329f7f129a7ffdd0df \
+                    sha256  71b61b8ef6b2aa1c9633b18e72d2f2b06fd3f47264cf276bc7f65e4ec0b1c7af \
+                    size    1474955
 
 cargo.offline_cmd
 

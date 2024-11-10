@@ -8,7 +8,7 @@ PortGroup           legacysupport 1.1
 legacysupport.use_mp_libcxx yes
 
 name                libopenmpt
-version             0.7.9
+version             0.7.11
 revision            0
 categories          audio devel multimedia
 license             BSD
@@ -20,13 +20,13 @@ homepage            https://lib.openmpt.org
 
 master_sites        https://lib.openmpt.org/files/libopenmpt/src/
 distname            ${name}-${version}+release.autotools
-checksums           rmd160  55baf4eb361ed774a29461bc49e5b296da9706ff \
-                    sha256  0386e918d75d797e79d5b14edd0847165d8b359e9811ef57652c0a356a2dfcf4 \
-                    size    1669833
+checksums           rmd160  61041521ab1f6a777809fe7d9c46875eba03c3b9 \
+                    sha256  53a798b8c6e2e1f695e8ad05e93a0c1b53199e5aa9981837c41696b370520767 \
+                    size    1671784
 livecheck.url       https://lib.openmpt.org/files/libopenmpt/src/
 
 depends_build-append \
-                    port:pkgconfig
+                    path:bin/pkg-config:pkgconfig
 depends_lib-append  port:flac \
                     port:libogg \
                     port:libsndfile \

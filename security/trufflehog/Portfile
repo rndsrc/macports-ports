@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           golang 1.0
 
-go.setup            github.com/trufflesecurity/trufflehog 3.82.2 v
+go.setup            github.com/trufflesecurity/trufflehog 3.83.6 v
 go.package          github.com/trufflesecurity/trufflehog/v3
 go.offline_build    no
 github.tarball_from archive
@@ -25,9 +25,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
 build.args-append \
     -ldflags \"-X ${go.package}/pkg/version.BuildVersion=${version}\"
 
-checksums           rmd160  454217fdc77fe3f53aa022a5921ea959f9cb435f \
-                    sha256  b6b67f9575f995b60ff8293b95e4d3e83971e66e6cfba4dcad466e8e6cb8f53a \
-                    size    3428693
+checksums           rmd160  b02ff2537a9f8a964e60bb32635b03f022d29bb5 \
+                    sha256  e46fe3c65c7e839f38b8ff93b54557fcdddba049f1e4b7428b34721eaf1a6a80 \
+                    size    3575557
 
 destroot {
     xinstall -m 0755 ${worksrcpath}/${name} ${destroot}${prefix}/bin/
